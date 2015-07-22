@@ -52,6 +52,8 @@ class GUI extends JFrame{
 	//bottom
 	private JLabel lblOutText;
 	private JLabel lblOutResult;
+	//font
+	Font font = new Font("Serif", Font.PLAIN, 20);
 	
 	public GUI(){
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +69,7 @@ class GUI extends JFrame{
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout());
-		
+
 		FlowLayout flowLayout = new FlowLayout(FlowLayout.LEFT);
 		
 		//top
@@ -75,6 +77,7 @@ class GUI extends JFrame{
 		panelInput.setSize(200, 50);
 		lblInput = new JLabel("Input expression :");
 		textFieldInput = new JTextField(20);
+		
 		btnRun = new JButton("RUN");
 		btnRun.addActionListener(new ActionListener() {
 			
@@ -99,6 +102,12 @@ class GUI extends JFrame{
 				
 			}
 		});
+		
+		lblInput.setFont(font);
+		textFieldInput.setFont(font);
+		btnRun.setFont(font);
+		btnClearText.setFont(font);
+		
 		panelInput.add(lblInput);
 		panelInput.add(textFieldInput);
 		panelInput.add(btnRun);
@@ -108,9 +117,13 @@ class GUI extends JFrame{
 		//center
 		panelOutRPN = new JPanel(flowLayout);
 		panelOutRPN.setSize(200, 50);
-		lblOutRPNText = new JLabel("Output relative    :");
+		lblOutRPNText = new JLabel("Output relative   :");
 		lblOutRPNResult = new JLabel();
 		lblOutRPNResult.setForeground(Color.magenta);
+		
+		lblOutRPNText.setFont(font);
+		lblOutRPNResult.setFont(font);
+		
 		panelOutRPN.add(lblOutRPNText);
 		panelOutRPN.add(lblOutRPNResult);
 		
@@ -123,6 +136,10 @@ class GUI extends JFrame{
 		lblOutText.setBackground(Color.green);
 		lblOutResult = new JLabel();
 		lblOutResult.setForeground(Color.green.darker());
+		
+		lblOutText.setFont(font);
+		lblOutResult.setFont(font);
+		
 		panelOutResult.add(lblOutText);
 		panelOutResult.add(lblOutResult);
 		contentPane.add(panelOutResult, BorderLayout.SOUTH);
